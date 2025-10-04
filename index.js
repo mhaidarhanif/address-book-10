@@ -1,5 +1,4 @@
 console.log("Address Book (Batch 10)");
 
-const message = "Hello";
-
-console.log(message);
+const contact = "Alpaca";
+const contacts = ["Alpaca", "Bear", "Cat"];
