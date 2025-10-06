@@ -1,6 +1,6 @@
 console.log("Address Book (Batch 10)");
 
-const contacts = [
+const dataContacts = [
   {
     id: 1,
     fullName: "M Haidar Hanif",
@@ -60,7 +60,7 @@ const contacts = [
   },
 ];
 
-function showContacts() {
+function showContacts(contacts) {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
 
@@ -73,4 +73,4 @@ function showContacts() {
   }
 }
 
-showContacts();
+showContacts(dataContacts);
