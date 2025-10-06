@@ -60,4 +60,13 @@ const contacts = [
   },
 ];
 
-console.log(contacts);
+for (let index = 0; index < contacts.length; index++) {
+  const contact = contacts[index];
+
+  console.log(`
+👤 ${contact.fullName}
+📞 ${contact.phone}
+📧 ${contact.email}
+
+`);
+}
