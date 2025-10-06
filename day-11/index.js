@@ -1,5 +1,7 @@
 console.log("Day 11");
 
+// --------------------------------------------------------------------
+
 const exampleAnimal = {
   name: "Bear",
   color: "brown",
@@ -12,3 +14,12 @@ with running speed up to ${animal.speed} km/h`);
 }
 
 describeAnimal(exampleAnimal);
+
+// --------------------------------------------------------------------
+
+function sumNumbers(numberA, numberB) {
+  return numberA + numberB;
+}
+
+console.log(sumNumbers(1, 2));
+console.log(sumNumbers(3, 4));
