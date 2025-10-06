@@ -60,13 +60,17 @@ const contacts = [
   },
 ];
 
-for (let index = 0; index < contacts.length; index++) {
-  const contact = contacts[index];
+function showContacts() {
+  for (let index = 0; index < contacts.length; index++) {
+    const contact = contacts[index];
 
-  console.log(`
-👤 ${contact.fullName}
-📞 ${contact.phone}
-📧 ${contact.email}
+    console.log(`
+  👤 ${contact.fullName}
+  📞 ${contact.phone}
+  📧 ${contact.email}
 
-`);
+  `);
+  }
 }
+
+showContacts();
