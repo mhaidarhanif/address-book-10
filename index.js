@@ -68,7 +68,6 @@ function showContacts(contacts) {
   👤 ${contact.fullName}
   📞 ${contact.phone}
   📧 ${contact.email}
-
   `);
   }
 }
