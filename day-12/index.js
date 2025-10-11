@@ -46,3 +46,17 @@ const newContactData = {
 const updatedContacts = [...contacts, newContactData];
 
 console.log(updatedContacts);
+
+// --------------------------------------------------------------------
+
+const contactExample = {
+  fullName: "Tim Berners-Lee",
+  email: "tim@tim.com",
+  websiteUrl: "https://tim.com",
+  secret: "Tim is a superhero",
+};
+
+const { secret, ...contactExampleDetails } = contactExample;
+
+console.log(secret);
+console.log(contactExampleDetails);
