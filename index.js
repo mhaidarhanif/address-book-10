@@ -63,13 +63,32 @@ const dataContacts = [
 function showContacts(contacts) {
   for (let index = 0; index < contacts.length; index++) {
     const contact = contacts[index];
-
-    console.log(`
-  👤 ${contact.fullName}
-  📞 ${contact.phone}
-  📧 ${contact.email}
-  `);
+    showContact(contact);
   }
 }
 
-showContacts(dataContacts);
+function showContact(contact) {
+  console.log(`
+    👤 ${contact.fullName}
+    📞 ${contact.phone}
+    📧 ${contact.email}
+    `);
+}
+
+function searchContacts(contacts, keyword) {
+  const foundContacts = contacts.filter((contact) =>
+    contact.fullName.toLowerCase().includes(keyword.toLowerCase())
+  );
+  return foundContacts;
+}
+
+function addContact() {}
+
+function deleteContact() {}
+
+function editContact() {}
+
+// showContacts(dataContacts);
+
+const searchResults = searchContacts(dataContacts, "steve");
+showContacts(searchResults);
