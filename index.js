@@ -104,7 +104,9 @@ function addContact(
     email: email,
   };
 
-  console.log(newContact);
+  const updatedContacts = [...contacts, newContact];
+
+  dataContacts = updatedContacts;
 }
 
 function deleteContact() {}
@@ -119,3 +121,5 @@ function editContact() {}
 // showContacts(searchResults);
 
 addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
+
+showContacts(dataContacts);
