@@ -109,9 +109,17 @@ function addContact(
   dataContacts = updatedContacts;
 }
 
-function deleteContact() {}
+function deleteContact(contacts, id) {
+  const updatedContacts = contacts.filter((contact) => contact.id !== id);
 
-function editContact() {}
+  dataContacts = updatedContacts;
+}
+
+function editContact(contacts, id, newContactData) {
+  // TODO: Use map to edit without AI
+
+  dataContacts = updatedContacts;
+}
 
 // ------------------------------------------------------------------
 
@@ -120,6 +128,8 @@ function editContact() {}
 // const searchResults = searchContacts(dataContacts, "steve");
 // showContacts(searchResults);
 
-addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
+// addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
 
-showContacts(dataContacts);
+// showContacts(dataContacts);
+
+deleteContact(dataContacts, 10);
