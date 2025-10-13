@@ -83,7 +83,15 @@ function searchContacts(contacts, keyword) {
   return foundContacts;
 }
 
-function addContact() {}
+function addContact(fullName = "No Name", phone = null, email = null) {
+  const newContact = {
+    fullName: fullName,
+    phone: phone,
+    email: email,
+  };
+
+  console.log(newContact);
+}
 
 function deleteContact() {}
 
@@ -91,7 +99,9 @@ function editContact() {}
 
 // ------------------------------------------------------------------
 
-showContacts(dataContacts);
+// showContacts(dataContacts);
 
 // const searchResults = searchContacts(dataContacts, "steve");
 // showContacts(searchResults);
+
+addContact("Jensen Huang", "+120304050", "jensen@nvidia.com");
