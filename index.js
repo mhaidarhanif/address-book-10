@@ -1,6 +1,6 @@
 console.log("Address Book (Batch 10)");
 
-const dataContacts = [
+let dataContacts = [
   {
     id: 1,
     fullName: "M Haidar Hanif",
@@ -61,13 +61,14 @@ const dataContacts = [
 ];
 
 function showContacts(contacts) {
-  for (let index = 0; index < contacts.length; index++) {
-    const contact = contacts[index];
-    showContact(contact);
-  }
+  contacts.forEach((contact) => renderContact(contact));
 }
 
-function showContact(contact) {
+function renderSeparatorLine() {
+  console.log("---------------------------------------");
+}
+
+function renderContact(contact) {
   console.log(`
     👤 ${contact.fullName}
     📞 ${contact.phone}
@@ -88,7 +89,9 @@ function deleteContact() {}
 
 function editContact() {}
 
-// showContacts(dataContacts);
+// ------------------------------------------------------------------
 
-const searchResults = searchContacts(dataContacts, "steve");
-showContacts(searchResults);
+showContacts(dataContacts);
+
+// const searchResults = searchContacts(dataContacts, "steve");
+// showContacts(searchResults);
