@@ -2,7 +2,7 @@ console.log("Address Book (Batch 10)");
 
 let dataContacts = [
   {
-    id: 1,
+    id: 10,
     fullName: "M Haidar Hanif",
     phone: "+62-812-345-678",
     email: "haidar@haidar.com",
@@ -21,7 +21,7 @@ let dataContacts = [
     },
   },
   {
-    id: 2,
+    id: 50,
     fullName: "Elon Musk",
     phone: "+1-2345-678",
     email: "elon@elon.com",
@@ -40,7 +40,7 @@ let dataContacts = [
     },
   },
   {
-    id: 3,
+    id: 150,
     fullName: "Steve Jobs",
     phone: "+1-2345-678",
     email: "jobs@jobs.com",
@@ -83,8 +83,22 @@ function searchContacts(contacts, keyword) {
   return foundContacts;
 }
 
-function addContact(fullName = "No Name", phone = null, email = null) {
+function addContact(
+  contacts,
+  fullName = "No Name",
+  phone = null,
+  email = null
+) {
+  // Example to breakdown the solution to get the newId
+  // const lastIndex = contacts.length - 1;
+  // const lastContact = contacts[lastIndex];
+  // const lastId = lastContact.id;
+  // const newId = lastId + 1;
+
+  const newId = contacts[contacts.length - 1].id + 1;
+
   const newContact = {
+    id: newId,
     fullName: fullName,
     phone: phone,
     email: email,
@@ -104,4 +118,4 @@ function editContact() {}
 // const searchResults = searchContacts(dataContacts, "steve");
 // showContacts(searchResults);
 
-addContact("Jensen Huang", "+120304050", "jensen@nvidia.com");
+addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
