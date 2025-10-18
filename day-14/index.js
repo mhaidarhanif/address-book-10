@@ -2,6 +2,8 @@ console.log("Day 14");
 
 const sayHelloButtonElement = document.getElementById("say-hello");
 
-sayHelloButtonElement.onclick = function () {
-  alert("Say Hello");
+const alertHello = function () {
+  console.log(this);
 };
+
+sayHelloButtonElement.addEventListener("click", alertHello);
