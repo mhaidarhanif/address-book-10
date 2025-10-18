@@ -71,8 +71,8 @@ function renderSeparatorLine() {
 function renderContact(contact) {
   console.log(`
     👤 ${contact.fullName}
-    📞 ${contact.phone}
-    📧 ${contact.email}
+    📞 ${contact.phone ?? "-"}
+    📧 ${contact.email ?? "-"}
     `);
 }
 
@@ -83,12 +83,7 @@ function searchContacts(contacts, keyword) {
   return foundContacts;
 }
 
-function addContact(
-  contacts,
-  fullName = "No Name",
-  phone = null,
-  email = null
-) {
+function addContact(contacts, { fullName = null, email = null, phone = null }) {
   // Example to breakdown the solution to get the newId
   // const lastIndex = contacts.length - 1;
   // const lastContact = contacts[lastIndex];
@@ -99,9 +94,9 @@ function addContact(
 
   const newContact = {
     id: newId,
-    fullName: fullName,
-    phone: phone,
-    email: email,
+    fullName,
+    phone,
+    email,
   };
 
   const updatedContacts = [...contacts, newContact];
@@ -115,9 +110,15 @@ function deleteContact(contacts, id) {
   dataContacts = updatedContacts;
 }
 
-function editContact(contacts, id, fullName, phone, email) {
+function editContact(contacts, id, { fullName, phone, email }) {
   const updatedContacts = contacts.map((contact) => {
-    if (contact.id === id) return { fullName, phone, email };
+    if (contact.id === id)
+      return {
+        ...contact,
+        fullName: fullName ?? contact.fullName,
+        phone: phone ?? contact.phone,
+        email: email ?? contact.email,
+      };
     else return contact;
   });
 
@@ -131,16 +132,15 @@ function editContact(contacts, id, fullName, phone, email) {
 // const searchResults = searchContacts(dataContacts, "steve");
 // showContacts(searchResults);
 
-// addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
+// addContact(dataContacts, {
+//   fullName: "Jensen Huang",
+//   email: "jensen@nvidia.com",
+// });
 
 // deleteContact(dataContacts, 10);
 
-editContact(
-  dataContacts,
-  10,
-  "M Haidar Hanif",
-  "+62-123-456-789",
-  "me@mhaidarhanif.com"
-);
+editContact(dataContacts, 10, {
+  email: "me@mhaidarhanif.dev",
+});
 
 showContacts(dataContacts);
