@@ -1,5 +1,7 @@
 console.log("Day 14");
 
-const contentElement = document.getElementById("content");
+const sayHelloButtonElement = document.getElementById("say-hello");
 
-contentElement.innerHTML = `<h1 id="example">Example Text</h1>`;
+sayHelloButtonElement.onclick = function () {
+  alert("Say Hello");
+};
