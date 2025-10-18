@@ -115,8 +115,11 @@ function deleteContact(contacts, id) {
   dataContacts = updatedContacts;
 }
 
-function editContact(contacts, id, newContactData) {
-  // TODO: Use map to edit without AI
+function editContact(contacts, id, fullName, phone, email) {
+  const updatedContacts = contacts.map((contact) => {
+    if (contact.id === id) return { fullName, phone, email };
+    else return contact;
+  });
 
   dataContacts = updatedContacts;
 }
@@ -130,6 +133,14 @@ function editContact(contacts, id, newContactData) {
 
 // addContact(dataContacts, "Jensen Huang", "+120304050", "jensen@nvidia.com");
 
-// showContacts(dataContacts);
+// deleteContact(dataContacts, 10);
 
-deleteContact(dataContacts, 10);
+editContact(
+  dataContacts,
+  10,
+  "M Haidar Hanif",
+  "+62-123-456-789",
+  "me@mhaidarhanif.com"
+);
+
+showContacts(dataContacts);
