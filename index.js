@@ -60,20 +60,20 @@ let dataContacts = [
   },
 ];
 
-function showContacts(contacts) {
-  contacts.forEach((contact) => renderContact(contact));
-}
+function renderContacts(contacts) {
+  const appElement = document.getElementById("app");
 
-function renderSeparatorLine() {
-  console.log("---------------------------------------");
+  appElement.innerHTML = `<ul id="contacts" class="space-y-4">
+    ${contacts.map((contact) => renderContact(contact)).join("")}
+  </ul>`;
 }
 
 function renderContact(contact) {
-  console.log(`
-    👤 ${contact.fullName}
-    📞 ${contact.phone ?? "-"}
-    📧 ${contact.email ?? "-"}
-    `);
+  return `<li class="p-2 border border-black rounded">
+  <h2 class="font-bold text-lg">👤 ${contact.fullName}</h2>
+  <p>📞 ${contact.phone ?? "-"}</p>
+  <p>📧 ${contact.email ?? "-"}</p>
+  </li>`;
 }
 
 function searchContacts(contacts, keyword) {
@@ -127,7 +127,7 @@ function editContact(contacts, id, { fullName, phone, email }) {
 
 // ------------------------------------------------------------------
 
-// showContacts(dataContacts);
+renderContacts(dataContacts);
 
 // const searchResults = searchContacts(dataContacts, "steve");
 // showContacts(searchResults);
@@ -139,8 +139,6 @@ function editContact(contacts, id, { fullName, phone, email }) {
 
 // deleteContact(dataContacts, 10);
 
-editContact(dataContacts, 10, {
-  email: "me@mhaidarhanif.dev",
-});
-
-showContacts(dataContacts);
+// editContact(dataContacts, 10, {
+//   email: "me@mhaidarhanif.dev",
+// });
