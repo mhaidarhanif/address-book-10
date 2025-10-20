@@ -61,8 +61,18 @@ let dataContacts = [
 function renderContacts(contacts) {
   const appElement = document.getElementById("app");
 
+  const searchParams = new URLSearchParams(window.location.search);
+  const query = searchParams.get("q");
+
+  const queryElement = document.getElementById("q");
+  queryElement.value = query;
+
+  const filteredContacts = query
+    ? searchContacts(dataContacts, query)
+    : contacts;
+
   appElement.innerHTML = `<ul id="contacts" class="space-y-4">
-    ${contacts.map((contact) => renderContact(contact)).join("")}
+    ${filteredContacts.map((contact) => renderContact(contact)).join("")}
   </ul>`;
 }
 
