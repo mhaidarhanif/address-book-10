@@ -9,18 +9,28 @@
   <body class="p-2 space-y-8">
     <h1 class="font-bold text-2xl">Address Book</h1>
 
-    <form id="add-contact-form" class="space-y-2">
+    <form id="add-contact-form" method="post" class="space-y-2">
       <div>
         <label for="full-name">Full Name</label>
-        <input id="full-name" type="text" class="border rounded p-1" />
+        <input
+          id="full-name"
+          type="text"
+          name="full-name"
+          class="border rounded p-1"
+        />
       </div>
       <div>
         <label for="phone">Phone</label>
-        <input id="phone" type="tel" class="border rounded p-1" />
+        <input id="phone" type="tel" name="phone" class="border rounded p-1" />
       </div>
       <div>
         <label for="email">Email</label>
-        <input id="email" type="email" class="border rounded p-1" />
+        <input
+          id="email"
+          type="email"
+          name="email"
+          class="border rounded p-1"
+        />
       </div>
 
       <button
