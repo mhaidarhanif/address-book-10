@@ -67,9 +67,7 @@ function renderContacts(contacts) {
   const queryElement = document.getElementById("q");
   queryElement.value = query;
 
-  const filteredContacts = query
-    ? searchContacts(dataContacts, query)
-    : contacts;
+  const filteredContacts = query ? searchContacts(contacts, query) : contacts;
 
   appElement.innerHTML = `<ul id="contacts" class="space-y-4">
     ${filteredContacts.map((contact) => renderContact(contact)).join("")}
@@ -98,7 +96,7 @@ function deleteContact(contacts, id) {
 
   dataContacts = updatedContacts;
 
-  renderContacts(dataContacts);
+  renderContacts(updatedContacts);
 }
 
 function searchContacts(contacts, keyword) {
@@ -128,7 +126,7 @@ function addContact(contacts, { fullName = null, email = null, phone = null }) {
 
   dataContacts = updatedContacts;
 
-  renderContacts(dataContacts);
+  renderContacts(updatedContacts);
 }
 
 function editContact(contacts, id, { fullName, phone, email }) {
