@@ -117,6 +117,8 @@ function addContact(contacts, { fullName = null, email = null, phone = null }) {
   const updatedContacts = [...contacts, newContact];
 
   dataContacts = updatedContacts;
+
+  renderContacts(dataContacts);
 }
 
 function editContact(contacts, id, { fullName, phone, email }) {
@@ -149,7 +151,7 @@ addContactFormElement.addEventListener("submit", (event) => {
     email: formData.get("email").toString(),
   };
 
-  console.log(newContactData);
+  addContact(dataContacts, newContactData);
 });
 
 renderContacts(dataContacts);
