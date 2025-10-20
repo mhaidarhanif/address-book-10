@@ -1,5 +1,3 @@
-console.log("Address Book (Batch 10)");
-
 let dataContacts = [
   {
     id: 10,
@@ -69,11 +67,28 @@ function renderContacts(contacts) {
 }
 
 function renderContact(contact) {
-  return `<li class="p-2 border border-black rounded">
-  <h2 class="font-bold text-lg">👤 ${contact.fullName}</h2>
-  <p>📞 ${contact.phone ?? "-"}</p>
-  <p>📧 ${contact.email ?? "-"}</p>
+  return `<li class="p-2 border border-black rounded flex justify-between">
+  <div>
+    <h2 class="font-bold text-lg">👤 ${contact.fullName}</h2>
+    <p>📞 ${contact.phone ?? "-"}</p>
+    <p>📧 ${contact.email ?? "-"}</p>
+  </div>
+  <div>
+    <button onclick="deleteContact(dataContacts, ${contact.id})"
+      class="bg-red-700 text-white text-xs px-1 py-0.5 rounded"
+    >
+      Delete
+    </button>
+  </div>
   </li>`;
+}
+
+function deleteContact(contacts, id) {
+  const updatedContacts = contacts.filter((contact) => contact.id !== id);
+
+  dataContacts = updatedContacts;
+
+  renderContacts(dataContacts);
 }
 
 function searchContacts(contacts, keyword) {
@@ -90,7 +105,7 @@ function addContact(contacts, { fullName = null, email = null, phone = null }) {
   // const lastId = lastContact.id;
   // const newId = lastId + 1;
 
-  const newId = contacts[contacts.length - 1].id + 1;
+  const newId = contacts.length > 0 ? contacts[contacts.length - 1].id + 1 : 1;
 
   const newContact = {
     id: newId,
@@ -100,12 +115,6 @@ function addContact(contacts, { fullName = null, email = null, phone = null }) {
   };
 
   const updatedContacts = [...contacts, newContact];
-
-  dataContacts = updatedContacts;
-}
-
-function deleteContact(contacts, id) {
-  const updatedContacts = contacts.filter((contact) => contact.id !== id);
 
   dataContacts = updatedContacts;
 }
