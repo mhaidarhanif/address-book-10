@@ -140,7 +140,16 @@ const addContactFormElement = document.getElementById("add-contact-form");
 
 addContactFormElement.addEventListener("submit", (event) => {
   event.preventDefault();
-  console.log("Add Contact");
+
+  const formData = new FormData(addContactFormElement);
+
+  const newContactData = {
+    fullName: formData.get("full-name").toString(),
+    phone: formData.get("phone").toString(),
+    email: formData.get("email").toString(),
+  };
+
+  console.log(newContactData);
 });
 
 renderContacts(dataContacts);
