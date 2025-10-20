@@ -136,18 +136,11 @@ function editContact(contacts, id, { fullName, phone, email }) {
 
 // ------------------------------------------------------------------
 
+const addContactFormElement = document.getElementById("add-contact-form");
+
+addContactFormElement.addEventListener("submit", (event) => {
+  event.preventDefault();
+  console.log("Add Contact");
+});
+
 renderContacts(dataContacts);
-
-// const searchResults = searchContacts(dataContacts, "steve");
-// showContacts(searchResults);
-
-// addContact(dataContacts, {
-//   fullName: "Jensen Huang",
-//   email: "jensen@nvidia.com",
-// });
-
-// deleteContact(dataContacts, 10);
-
-// editContact(dataContacts, 10, {
-//   email: "me@mhaidarhanif.dev",
-// });
